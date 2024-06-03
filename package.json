@@ -1,0 +1,60 @@
+{
+  "name": "superset-plugin-chart-kinetica-map",
+  "version": "0.1.0",
+  "description": "Superset Plugin Chart Kinetica Map",
+  "sideEffects": false,
+  "main": "lib/index.js",
+  "module": "esm/index.js",
+  "files": [
+    "esm",
+    "lib"
+  ],
+  "private": true,
+  "scripts": {
+    "build": "npm run build-cjs && npm run build-esm && npm run ts-types",
+    "build-cjs": "babel src --extensions \".ts,.tsx,.js,.jsx\" --copy-files --out-dir lib",
+    "build-clean": "npm run clean && npm run build",
+    "build-esm": "BABEL_OUTPUT=esm babel src --extensions \".ts,.tsx,.js,.jsx\" --copy-files --out-dir esm",
+    "dev": "BABEL_OUTPUT=esm babel src --extensions \".ts,.tsx,.js,.jsx\" --watch --copy-files --out-dir esm",
+    "prebuild": "rimraf {lib,esm,tsconfig.tsbuildinfo}",
+    "ts-types": "tsc --build",
+    "test": "jest"
+  },
+  "author": "My Name",
+  "license": "Apache-2.0",
+  "publishConfig": {
+    "access": "public"
+  },
+  "dependencies": {
+    "bootstrap": "^4.6.2",
+    "colorbrewer": "^1.5.3",
+    "d3": "^7.8.2",
+    "debounce": "^1.2.0",
+    "jquery": "^3.5.1",
+    "ol": "^6.4.3",
+    "ol-geocoder": "^4.1.2",
+    "react-beautiful-dnd": "^13.1.1",
+    "react-bootstrap": "^1.6.6",
+    "react-bootstrap-icons": "^1.0.0",
+    "react-color": "^2.18.1",
+    "react-data-grid": "7.0.0-beta.12",
+    "react-datetime": "^3.2.0",
+    "react-dom": "^16.9.0",
+    "react-router-dom": "^5.2.0",
+    "shortid": "^2.2.15"
+  },
+  "peerDependencies": {
+    "@airbnb/config-babel": "^2.0.1",
+    "@superset-ui/chart-controls": "*",
+    "@superset-ui/core": "*",
+    "react": "^16.13.1"
+  },
+  "devDependencies": {
+    "@airbnb/config-babel": "^3.1.0",
+    "@babel/cli": "^7.16.0",
+    "@types/jest": "^26.0.4",
+    "jest": "^26.6.3",
+    "rimraf": "^3.0.2",
+    "typescript": "^4.1.2"
+  }
+}
